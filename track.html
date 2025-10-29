@@ -10,55 +10,86 @@
 
 <body>
     <header class="navbar">
-        <div class="brand">Visa Portal</div>
-        <nav class="menu">
-            <a href="index.html">Home</a>
+        <div class="brand">
+            <a href="index.html" class="brand-text">VisaFlow</a>
+        </div>
+        <button id="menuToggle" class="menu-toggle" aria-label="Menu">
+            <img src="assets/menu.svg" class="menu-icon" alt="">
+        </button>
+
+        <nav id="mobileMenu" class="menu mobile-nav">
+            <a href="index.html" class="nav-item"><img src="assets/home.svg" class="nav-icon" alt="Home Icon">Home</a>
+            <a href="track.html" class="nav-item"><img src="assets/search.svg" class="nav-icon" alt="Search Icon">Track</a>
+            <a href="about.html" class="nav-item"><img src="assets/info.svg" class="nav-icon" alt="Info Icon">About</a>
+            <a href="privacy.html" class="nav-item"><img src="assets/privacy.svg" class="nav-icon"
+                    alt="Info Icon">Privacy</a>
+            <a href="terms.html" class="nav-item"><img src="assets/terms.svg" class="nav-icon" alt="Info Icon">Terms</a>
         </nav>
     </header>
 
     <main class="track-page">
         <h2>Check Application Status</h2>
-        <input id="refInput" type="text" placeholder="Enter Reference Number">
-        <button onclick="trackStatus()">Track</button>
+
+        <div class="track-box">
+            <input id="refInput" type="text" placeholder="Enter Reference Number">
+            <button class="track-btn" onclick="trackStatus()">Track</button>
+        </div>
 
         <div id="result" class="visa-card hidden"></div>
     </main>
 
+
     <footer class="footer">
-        <p>© Donexis Visa Services. All rights reserved.</p>
+        <p>© VisaFlow Services. All rights reserved.</p>
+        <nav class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="about.html">About</a>
+        </nav>
     </footer>
 
     <script>
-        function trackStatus() {
-            var ref = document.getElementById("refInput").value.trim();
-            var resultBox = document.getElementById("result");
+        const toggleBtn = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
 
-            if (ref === "VIS-H0024705753") {
-                resultBox.classList.remove("hidden");
-                resultBox.innerHTML = `
-                    <div class="visa-header">
-                        <img src="images/user.png" class="applicant-photo">
-                        <div>
-                            <p><strong>Visa Number:</strong>VIS-H0024705753</p>
-                            <p><strong>Name:</strong> Shabbir Hussain</p>
-                            <p><strong>Status:</strong> Approved</p>
-                        </div>
-                    </div>
-                    <table class="visa-table">
-                        <tr><th>Nationality</th><td>Pakistan</td></tr>
-                        <tr><th>Passport No</th><td>BT6895662</td></tr>
-                        <tr><th>Date of Birth</th><td>02 January 1986</td></tr>
-                        <tr><th>Sex</th><td>Male</td></tr>
-                        <tr><th>Submission Date</th><td>14 Oct 2025</td></tr>
-                        <tr><th>Expiry Date</th><td>29 Oct 2025</td></tr>
-                    </table>
-                `;
+        if(toggleBtn){
+            toggleBtn.addEventListener("click",function(){
+                toggleBtn.classList.toggle("open");
+                mobileMenu.classList.toggle("open");
+            });
+        }
+
+        function trackStatus(){
+            const ref = document.getElementById("refInput").value.trim().toUpperCase();
+            const resultBox = document.getElementById("result");
+
+            if(ref === "VIS-H0024705753"){
+                resultBox.style.display = "block";
+                resultBox.innerHTML =
+                '<div class="visa-header">' +
+                    '<img src="images/user.png" class="applicant-photo">' +
+                    '<div class="personal-info">' +
+                        '<p><strong>VIS-H0024705753</strong></p>' +
+                        '<p><strong>Name:</strong> Shabbir Hussain</p>' +
+                        '<p><strong>Status:</strong> Approved</p>' +
+                    '</div>' +
+                '</div>' +
+                '<table class="visa-table">' +
+                    '<tr><th>Nationality</th><td>Pakistan</td></tr>' +
+                    '<tr><th>Passport No</th><td>BT6895662</td></tr>' +
+                    '<tr><th>Date of Birth</th><td>02 January 1986</td></tr>' +
+                    '<tr><th>Sex</th><td>Male</td></tr>' +
+                    '<tr><th>Submission Date</th><td>29 Oct 2025</td></tr>' +
+                    '<tr><th>Visa Expiry Date</th><td>29 Oct 2027</td></tr>' +
+                '</table>';
             } else {
-                resultBox.classList.remove("hidden");
-                resultBox.innerHTML = "Reference not found";
+                resultBox.style.display = "block";
+                resultBox.innerHTML =
+                '<p class="no-result">Reference not found. Confirm your tracking code.</p>';
             }
         }
-    </script>
+        </script>
+
 
 </body>
 
