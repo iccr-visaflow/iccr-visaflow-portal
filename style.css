@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+ }
+ .navbar {
+     display: flex;
+     justify-content: space-between;
+     padding: 16px;
+     background: #0033cc;
+     color: white;
+ }
+
+ .navbar a {
+     color: white;
+     text-decoration: none;
+     font-size: 14px;
+ }
+
+ .landing {
+     text-align: center;
+     padding: 80px 16px;
+ }
+
+ .landing h1 {
+     font-size: 36px;
+     margin-bottom: 12px;
+ }
+
+ .track-btn {
+     display: inline-block;
+     padding: 12px 20px;
+     background: #0033cc;
+     color: white;
+     text-decoration: none;
+     border-radius: 4px;
+     margin-top: 16px;
+ }
+
+ .track-page {
+     text-align: center;
+     padding: 40px;
+ }
+
+ .track-page input {
+     width: 260px;
+     padding: 10px;
+     margin-right: 8px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+ }
+
+ button {
+     padding: 10px 16px;
+     background: #0033cc;
+     color: white;
+     border: none;
+     border-radius: 4px;
+     cursor: pointer;
+ }
+
+ button:hover {
+     background: #002699;
+ }
+
+ .result-box {
+     margin-top: 30px;
+     background: #f1f1f1;
+     padding: 20px;
+     border-radius: 6px;
+     width: 300px;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: left;
+     font-size: 14px;
+ }
+ .visa-card {
+     margin-top: 40px;
+     background: white;
+     padding: 20px;
+     border-radius: 6px;
+     width: 360px;
+     margin-left: auto;
+     margin-right: auto;
+     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .visa-header {
+     display: flex;
+     align-items: center;
+     gap: 14px;
+     margin-bottom: 20px;
+ }
+
+ .applicant-photo {
+     width: 90px;
+     height: 100%;
+     border-radius: 4px;
+     object-fit: cover;
+     border: 1.5px solid #ccc;
+ }
+
+ .visa-table {
+     width: 100%;
+     border-collapse: collapse;
+     font-size: 14px;
+ }
+
+ .visa-table th {
+     text-align: left;
+     padding: 6px;
+     color: #0033cc;
+ }
+
+ .visa-table td {
+     padding: 6px;
+     border-bottom: 1px solid #ccc;
+ }
+
+ .hidden {
+     display: none;
+ }
+ .footer {
+     text-align: center;
+     padding: 16px;
+     font-size: 12px;
+     background: #eee;
+ }

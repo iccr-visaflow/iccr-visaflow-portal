@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Visa Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="brand">Visa Portal</div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <main class="track-page">
+        <h2>Check Application Status</h2>
+        <input id="refInput" type="text" placeholder="Enter Reference Number">
+        <button onclick="trackStatus()">Track</button>
+
+        <div id="result" class="visa-card hidden"></div>
+    </main>
+
+    <footer class="footer">
+        <p>© Donexis Visa Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function trackStatus() {
+            var ref = document.getElementById("refInput").value.trim();
+            var resultBox = document.getElementById("result");
+
+            if (ref === "VIS-H0024705753") {
+                resultBox.classList.remove("hidden");
+                resultBox.innerHTML = `
+                    <div class="visa-header">
+                        <img src="images/user.png" class="applicant-photo">
+                        <div>
+                            <p><strong>Visa Number:</strong>VIS-H0024705753</p>
+                            <p><strong>Name:</strong> Shabbir Hussain</p>
+                            <p><strong>Status:</strong> Approved</p>
+                        </div>
+                    </div>
+                    <table class="visa-table">
+                        <tr><th>Nationality</th><td>Pakistan</td></tr>
+                        <tr><th>Passport No</th><td>BT6895662</td></tr>
+                        <tr><th>Date of Birth</th><td>02 January 1986</td></tr>
+                        <tr><th>Sex</th><td>Male</td></tr>
+                        <tr><th>Submission Date</th><td>14 Oct 2025</td></tr>
+                        <tr><th>Expiry Date</th><td>29 Oct 2025</td></tr>
+                    </table>
+                `;
+            } else {
+                resultBox.classList.remove("hidden");
+                resultBox.innerHTML = "Reference not found";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
